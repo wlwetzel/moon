@@ -1,0 +1,28 @@
+/run/initialize
+
+/gps/particle gamma
+
+/gps/pos/type Point
+/gps/pos/centre 0 0 0 cm
+/gps/ang/type iso
+/gps/ang/mintheta 175 deg
+
+
+#this is the beta spectrum
+#/gps/ene/type User
+#/gps/hist/type energy
+#/control/execute spectrum.mac
+
+# the gamma spectrum i think
+/gps/ene/type Arb
+/gps/hist/type arb
+/gps/hist/point .0048815  .9
+/gps/hist/point .0318174  1.95
+/gps/hist/point .0321939  3.59
+/gps/hist/point .0364457  1.055
+/gps/hist/point .0373317  .266
+/gps/hist/point .2835  .00058
+/gps/hist/point .661657  84.99
+/gps/hist/inter Exp
+
+/run/beamOn 100000

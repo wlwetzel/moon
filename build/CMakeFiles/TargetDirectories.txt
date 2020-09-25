@@ -1,0 +1,8 @@
+/home/wyatt/Documents/g4_projects/moon/build/CMakeFiles/install/strip.dir
+/home/wyatt/Documents/g4_projects/moon/build/CMakeFiles/install/local.dir
+/home/wyatt/Documents/g4_projects/moon/build/CMakeFiles/edit_cache.dir
+/home/wyatt/Documents/g4_projects/moon/build/CMakeFiles/install.dir
+/home/wyatt/Documents/g4_projects/moon/build/CMakeFiles/list_install_components.dir
+/home/wyatt/Documents/g4_projects/moon/build/CMakeFiles/rebuild_cache.dir
+/home/wyatt/Documents/g4_projects/moon/build/CMakeFiles/moon_src.dir
+/home/wyatt/Documents/g4_projects/moon/build/CMakeFiles/moon.dir
