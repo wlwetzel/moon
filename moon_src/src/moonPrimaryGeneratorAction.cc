@@ -79,8 +79,12 @@ void moonPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 
   fSource->SetParticlePosition(G4ThreeVector());
   fSource->GeneratePrimaryVertex(anEvent);
+  G4ThreeVector direction = fSource->GetParticleMomentumDirection();
+  G4double theta = (180.0/3.14159) * direction.theta();
   G4double energy = fSource->GetParticleEnergy();
   analysisManager->FillNtupleDColumn(0,energy);
+  analysisManager->FillNtupleDColumn(2,theta);
+
 
 }
 

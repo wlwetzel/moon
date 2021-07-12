@@ -47,6 +47,7 @@
 /vis/viewer/set/autoRefresh true
 /vis/viewer/refresh
 /vis/verbose warnings
+<<<<<<< HEAD
 /run/beamOn 1
 /vis/scene/notifyHandlers scene-0
 /run/beamOn 1
@@ -66,3 +67,22 @@
 /run/beamOn 1
 /run/beamOn 1
 /run/beamOn 1
+=======
+/control/execute run.mac
+/gps/particle alpha
+/gps/pos/type Plane
+/gps/pos/shape Square
+/gps/pos/centre 1. 2. 1. cm
+/gps/pos/halfx 2. cm
+/gps/pos/halfy 2. cm
+/gps/ang/type user
+/gps/hist/type theta
+/gps/ang/mintheta 90 deg
+/gps/hist/point 0. 1.
+/gps/hist/point 1. 1.
+/gps/hist/point 2. 1.
+/gps/hist/point 2.5 1.
+/gps/hist/point 3.14 1.
+/run/beamOn 1000
+/vis/scene/notifyHandlers scene-0
+>>>>>>> 87fc43f5389d2962adcb236dd18fe5bab1778bb6
