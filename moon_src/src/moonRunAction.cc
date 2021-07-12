@@ -57,6 +57,7 @@ moonRunAction::moonRunAction()
   analysisManager->CreateNtuple("MOON", "Data");
   analysisManager->CreateNtupleDColumn("Inc Energy");
   analysisManager->CreateNtupleDColumn("Dep Energy");
+  analysisManager->CreateNtupleDColumn("Angle");
 
 
 }
