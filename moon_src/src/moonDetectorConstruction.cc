@@ -45,7 +45,9 @@
 moonDetectorConstruction::moonDetectorConstruction()
 : G4VUserDetectorConstruction(),
   fScoringVolume(0)
-{ }
+{
+  fMessenger = moonMessenger::Instance();
+}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 

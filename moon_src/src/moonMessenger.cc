@@ -38,3 +38,17 @@ moonMessenger::~moonMessenger()
 {
   delete thickCmd;
 }
+
+void moonMessenger::SetNewValue(G4UIcommand * command, G4String newValues)
+{
+    if (command == thickCmd)
+        thick = G4UIcmdWithADoubleAndUnit::GetNewDoubleValue(newValues);
+}
+
+G4String moonMessenger::GetCurrentValue(G4UIcommand * command)
+{
+  G4String cv;
+    if( command==thickCmd )
+        cv = thick;
+    return cv;
+}

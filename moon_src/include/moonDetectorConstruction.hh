@@ -32,6 +32,7 @@
 
 #include "G4VUserDetectorConstruction.hh"
 #include "globals.hh"
+#include "moonMessenger.hh"
 
 class G4VPhysicalVolume;
 class G4LogicalVolume;
@@ -50,6 +51,9 @@ class moonDetectorConstruction : public G4VUserDetectorConstruction
 
   protected:
     G4LogicalVolume*  fScoringVolume;
+
+  private:
+    moonMessenger* fMessenger;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
