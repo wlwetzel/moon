@@ -91,20 +91,31 @@ int main(int argc,char** argv)
 
   // Process macro or start UI session
   //
-  if ( ! ui ) {
-    // batch mode
-    std::cout << "FCUJADASNFKASFKASFAKSASDKSKFDNASFKANA";
-    G4String command = "/control/execute ";
+  // if ( ! ui ) {
+  //   // batch mode
+  //   G4String command = "/control/execute ";
+  //
+  //   G4String fileName = argv[1];
+  //   UImanager->ApplyCommand(command+fileName);
+  // }
+  // else {
+  //   // interactive mode
+  //   UImanager->ApplyCommand("/control/execute init_vis.mac");
+  //   ui->SessionStart();
+  //   delete ui;
+  // }
 
-    G4String fileName = argv[1];
-    UImanager->ApplyCommand(command+fileName);
-  }
-  else {
-    // interactive mode
-    UImanager->ApplyCommand("/control/execute init_vis.mac");
+  if (ui) {
+    //interactive mode
+    UImanager->ApplyCommand("/control/execute ../moon_src/init_vis.mac");
     ui->SessionStart();
     delete ui;
-  }
+    } else {
+    //batch mode
+    G4String command = "/control/execute ";
+    G4String fileName = argv[1];
+    UImanager->ApplyCommand(command+fileName);
+    }
 
   // Job termination
   // Free the store: user actions, physics_list and detector_description are

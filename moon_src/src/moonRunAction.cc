@@ -30,8 +30,8 @@
 #include "moonRunAction.hh"
 #include "moonPrimaryGeneratorAction.hh"
 #include "moonDetectorConstruction.hh"
-// #include "moonRun.hh"
-
+#include <iostream>
+#include <string>
 #include "G4RunManager.hh"
 #include "G4Run.hh"
 #include "G4AccumulableManager.hh"
@@ -47,18 +47,16 @@ moonRunAction::moonRunAction()
   fEdep(0.)
   {
 
-
   // Register accumulable to the accumulable manager
   G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
   accumulableManager->RegisterAccumulable(fEdep);
 
-  auto analysisManager = G4AnalysisManager::Instance();
+  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
 
   analysisManager->CreateNtuple("MOON", "Data");
   analysisManager->CreateNtupleDColumn("Inc Energy");
   analysisManager->CreateNtupleDColumn("Dep Energy");
   analysisManager->CreateNtupleDColumn("Angle");
-
 
 }
 
@@ -71,16 +69,28 @@ moonRunAction::~moonRunAction()
 
 void moonRunAction::BeginOfRunAction(const G4Run*)
 {
+  fMessenger = moonMessenger::Instance();
+
   // inform the runManager to save random number seed
   G4RunManager::GetRunManager()->SetRandomNumberStore(false);
 
   // reset accumulables to their initial values
   G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
   accumulableManager->Reset();
-  G4RunManager::GetRunManager()->SetRandomNumberStore(false);
-  auto analysisManager = G4AnalysisManager::Instance();
-  G4String fileName = "moon_dat";
+
+ // trying to set the file name in the macro file
+  G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+
+  G4double plate_thickness = fMessenger->GetThick();
+  G4String particle = fMessenger->GetParticle();
+  std::string thick_str = std::to_string( (.2) * plate_thickness/mm);
+  auto butt = thick_str[0];
+  G4String fileName = "moon_dat_" ;
+  fileName+=butt;
+  fileName+="cm_";
+  fileName+=particle;
   analysisManager->OpenFile(fileName);
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -97,6 +107,7 @@ void moonRunAction::EndOfRunAction(const G4Run* run)
   auto analysisManager = G4AnalysisManager::Instance();
 
   analysisManager->Write();
+
   analysisManager->CloseFile();
 }
 

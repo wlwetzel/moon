@@ -44,7 +44,8 @@
 
 moonDetectorConstruction::moonDetectorConstruction()
 : G4VUserDetectorConstruction(),
-  fScoringVolume(0)
+  fScoringVolume(0),
+  logicWorld(nullptr)
 {
   fMessenger = moonMessenger::Instance();
 }
@@ -63,7 +64,6 @@ G4VPhysicalVolume* moonDetectorConstruction::Construct()
   //
   G4bool checkOverlaps = true; //set overlaps
   // Get nist material manager
-  G4NistManager* nist = G4NistManager::Instance();
 
   //G4Material* env_mat = nist->FindOrBuildMaterial("G4_AIR");
   G4double atomicNumber = 1;
@@ -75,26 +75,75 @@ G4VPhysicalVolume* moonDetectorConstruction::Construct()
     new G4Material("vac",atomicNumber,massOfMole,density,kStateGas,temperature,
                   pressure);
 
-  G4double world_dim = 2*cm; //cube
+  G4double world_dim = 5*cm; //cube
   //world
   G4Box* solidWorld =
     new G4Box("world",world_dim,world_dim,world_dim);
-  G4LogicalVolume* logicWorld =
+
+  logicWorld =
     new G4LogicalVolume(solidWorld, env_mat,"world");
+
   G4VPhysicalVolume* physWorld =
-    new G4PVPlacement(0,                     //no rotation
+    new G4PVPlacement(nullptr,                     //no rotation
                       G4ThreeVector(),       //at (0,0,0)
                       logicWorld,            //its logical volume
                       "world",               //its name
-                      0,                     //its mother  volume (null)
+                      nullptr,                     //its mother  volume (null)
                       false,                 //no boolean operation
                       0,                     //copy number
                       checkOverlaps);        //overlaps checking
+
+  G4double hx = .5*3*mm;
+  G4double hy = .5*7*mm;
+  G4double det_hz = .5*250*micrometer;
+  G4double shield_hz = .5*.01*2.54*cm; // .01 inches
+  G4double plate_thickness = fMessenger->GetThick();
+  //Detector
+  moonDetectorConstruction::detectorConstruction(hx,hy,det_hz);
+  //shield
+  moonDetectorConstruction::shieldConstruction(hx,hy,shield_hz);
+
+  //plate to cover shield+detector
+  moonDetectorConstruction::plateConstruction(hx,hy,plate_thickness);
+  //
+  //always return the physical World
+  //
+  return physWorld;
+}
+
+void moonDetectorConstruction::plateConstruction(const G4double plate_hx,
+                                                  const G4double plate_hy,
+                                                  const G4double plate_hz)
+{
+  G4NistManager* nist = G4NistManager::Instance();
+  G4Material* plate_mat = nist->FindOrBuildMaterial("G4_Al");
+  G4double shield_hz = .5*.01*2.54*cm; // .01 inches
+  G4double det_hz = .5*250*micrometer;
+  G4ThreeVector plate_pos = G4ThreeVector(0,0,1*cm - (shield_hz+det_hz+plate_hz));
+
+  G4Box* solidPlate =
+      new G4Box("plate",plate_hx,plate_hy,plate_hz);
+  G4LogicalVolume* logicPlate =
+    new G4LogicalVolume(solidPlate,
+                        plate_mat,
+                        "plate");
+  new G4PVPlacement(0,
+                    plate_pos,
+                    logicPlate,
+                    "plate",
+                    logicWorld,
+                    false,
+                    0,
+                    true);
+}
+
+void moonDetectorConstruction::detectorConstruction(const G4double det_hx,
+                                                    const G4double det_hy,
+                                                    const G4double det_hz)
+{
+  G4NistManager* nist = G4NistManager::Instance();
   //Detector
   G4Material* det_mat = nist-> FindOrBuildMaterial("G4_Si");
-  G4double det_hx = .5*3*mm;
-  G4double det_hy = .5*7*mm;
-  G4double det_hz = .5*250*micrometer;
   G4VisAttributes * detColor = new G4VisAttributes(G4Colour(0.,1.,1.));
 
   G4ThreeVector det_pos = G4ThreeVector(0,0,1*cm);
@@ -105,20 +154,30 @@ G4VPhysicalVolume* moonDetectorConstruction::Construct()
     new G4LogicalVolume(solidDetecor,
                         det_mat,
                         "detector");
-logicDetector-> SetVisAttributes(detColor);
-  new G4PVPlacement(0,                     //no rotation
-                    det_pos,
-                    logicDetector,            //its logical volume
-                    "detector",               //its name
-                    logicWorld,                     //its mother  volume
-                    false,                 //no boolean operation
-                    0,                     //copy number
-                    checkOverlaps);        //overlaps checking
-  //shield
+  logicDetector-> SetVisAttributes(detColor);
+    new G4PVPlacement(0,                     //no rotation
+                      det_pos,
+                      logicDetector,            //its logical volume
+                      "detector",               //its name
+                      logicWorld,                     //its mother  volume
+                      false,                 //no boolean operation
+                      0,                     //copy number
+                      true);        //overlaps checking
+
+  // Set detector as scoring volume
+  //
+  fScoringVolume = logicDetector;
+
+}
+
+void moonDetectorConstruction::shieldConstruction(const G4double shield_hx,
+                                                  const G4double shield_hy,
+                                                  const G4double shield_hz)
+{
+
+  G4NistManager* nist = G4NistManager::Instance();
   G4Material* shield_mat = nist->FindOrBuildMaterial("G4_Al");
-  G4double shield_hx = det_hx;
-  G4double shield_hy = det_hy;
-  G4double shield_hz = .5*.01*2.54*cm; // .01 inches
+  G4double det_hz = .5*250*micrometer;
   G4ThreeVector shield_pos = G4ThreeVector(0,0,1*cm - (shield_hz+det_hz));
 
   G4Box* solidShield =
@@ -134,15 +193,7 @@ logicDetector-> SetVisAttributes(detColor);
                     logicWorld,
                     false,
                     0,
-                    checkOverlaps);
-  // Set detector as scoring volume
-  //
-  fScoringVolume = logicDetector;
+                    true);
 
-  //
-  //always return the physical World
-  //
-  return physWorld;
 }
-
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

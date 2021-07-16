@@ -51,11 +51,11 @@ moonPrimaryGeneratorAction::moonPrimaryGeneratorAction()
   fSource  = new G4GeneralParticleSource();
 
   // default particle kinematic
-  G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
-  G4String particleName;
-  G4ParticleDefinition* particle
-    = particleTable->FindParticle(particleName="gamma");
-  fSource->SetParticleDefinition(particle);
+  // G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
+  // G4String particleName;
+  // G4ParticleDefinition* particle
+  //   = particleTable->FindParticle(particleName="gamma");
+  // fSource->SetParticleDefinition(particle);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -84,7 +84,6 @@ void moonPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   G4double energy = fSource->GetParticleEnergy();
   analysisManager->FillNtupleDColumn(0,energy);
   analysisManager->FillNtupleDColumn(2,theta);
-
 
 }
 

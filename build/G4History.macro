@@ -25,10 +25,8 @@
 /vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2
 /vis/scene/notifyHandlers scene-0
 /vis/scene/endOfEventAction accumulate
-/vis/set/textColour green
-/vis/set/textLayout right
-/vis/set/textLayout
-/vis/set/textColour
+/vis/scene/add/scale
+/vis/scene/notifyHandlers
 /vis/scene/add/axes
 /vis/scene/notifyHandlers
 /vis/scene/add/eventID
@@ -39,50 +37,61 @@
 /vis/scene/notifyHandlers
 /vis/set/colour
 /vis/set/lineWidth
-/vis/geometry/set/visibility world 0 false
-/vis/scene/notifyHandlers
-/vis/viewer/set/style surface
-/vis/viewer/set/hiddenMarker true
-/vis/viewer/set/viewpointThetaPhi 120 150
 /vis/viewer/set/autoRefresh true
 /vis/viewer/refresh
 /vis/verbose warnings
-<<<<<<< HEAD
-/run/beamOn 1
+/control/execute ../moon_src/1cm.mac
+/config/Thick .01 mm
+/run/initialize
+/control/verbose 0
+/tracking/verbose 0
+/event/verbose 0
+/gps/verbose 0
+/gps/particle e-
+/gps/energy 300 keV
+/gps/pos/centre 0 0 -4
+/gps/direction 0 0 1
+/gps/source/add 1.
+/gps/particle e-
+/gps/energy 500 keV
+/gps/pos/centre 0 0 -4
+/gps/direction 1 0 0
+/gps/source/multiplevertex false
+/run/beamOn 5
 /vis/scene/notifyHandlers scene-0
-/run/beamOn 1
-/run/beamOn 1
-/run/beamOn 1
-/run/beamOn 1
-/run/beamOn 1
-/run/beamOn 1
-/run/beamOn 1
-/run/beamOn 1
-/run/beamOn 1
-/run/beamOn 1
-/run/beamOn 1
-/run/beamOn 1
-/run/beamOn 1
-/run/beamOn 1
-/run/beamOn 1
-/run/beamOn 1
-/run/beamOn 1
-=======
-/control/execute run.mac
-/gps/particle alpha
-/gps/pos/type Plane
-/gps/pos/shape Square
-/gps/pos/centre 1. 2. 1. cm
-/gps/pos/halfx 2. cm
-/gps/pos/halfy 2. cm
-/gps/ang/type user
-/gps/hist/type theta
-/gps/ang/mintheta 90 deg
-/gps/hist/point 0. 1.
-/gps/hist/point 1. 1.
-/gps/hist/point 2. 1.
-/gps/hist/point 2.5 1.
-/gps/hist/point 3.14 1.
-/run/beamOn 1000
-/vis/scene/notifyHandlers scene-0
->>>>>>> 87fc43f5389d2962adcb236dd18fe5bab1778bb6
+/control/execute ../moon_src/1cm.mac
+/config/Thick .01 mm
+/run/initialize
+/control/verbose 0
+/tracking/verbose 0
+/event/verbose 0
+/gps/verbose 0
+/gps/particle e-
+/gps/energy 300 keV
+/gps/pos/centre 0 0 -4
+/gps/direction 0 0 1
+/gps/source/add 1.
+/gps/particle e-
+/gps/energy 500 keV
+/gps/pos/centre 0 0 -4
+/gps/direction 0 0 1
+/gps/source/multiplevertex false
+/run/beamOn 10
+/control/execute ../moon_src/1cm.mac
+/config/Thick .01 mm
+/run/initialize
+/control/verbose 0
+/tracking/verbose 0
+/event/verbose 0
+/gps/verbose 0
+/gps/particle e-
+/gps/energy 300 keV
+/gps/pos/centre 0 0 -4
+/gps/direction 0 0 1
+/gps/source/add 1.
+/gps/particle e-
+/gps/energy 5000 keV
+/gps/pos/centre 0 0 -4
+/gps/direction 0 0 1
+/gps/source/multiplevertex false
+/run/beamOn 10

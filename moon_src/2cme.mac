@@ -1,0 +1,68 @@
+/config/Thick 10 mm
+/config/particle elec
+
+/run/initialize
+/control/verbose 0
+/tracking/verbose 0
+/event/verbose 0
+/gps/verbose 0
+
+/gps/particle e-
+/gps/energy 100 keV
+/gps/pos/centre 0 0 -4
+/gps/direction 0 0 1
+
+/gps/source/add 1.
+/gps/particle e-
+/gps/energy 300 keV
+/gps/pos/centre 0 0 -4
+/gps/direction 0 0 1
+
+
+/gps/source/add 1.
+/gps/particle e-
+/gps/energy 600 keV
+/gps/pos/centre 0 0 -4
+/gps/direction 0 0 1
+
+
+/gps/source/add 1.
+/gps/particle e-
+/gps/energy 1000 keV
+/gps/pos/centre 0 0 -4
+/gps/direction 0 0 1
+
+
+/gps/source/add 1.
+/gps/particle e-
+/gps/energy 3000 keV
+/gps/pos/centre 0 0 -4
+/gps/direction 0 0 1
+
+
+/gps/source/add 1.
+/gps/particle e-
+/gps/energy 5000 keV
+/gps/pos/centre 0 0 -4
+/gps/direction 0 0 1
+
+
+/gps/source/add 1.
+/gps/particle e-
+/gps/energy 7000 keV
+/gps/pos/centre 0 0 -4
+/gps/direction 0 0 1
+
+
+/gps/source/add 1.
+/gps/particle e-
+/gps/energy 10 MeV
+/gps/pos/centre 0 0 -4
+/gps/direction 0 0 1
+
+
+/gps/source/multiplevertex false
+
+/gps/source/flatsampling false
+
+/run/beamOn 5

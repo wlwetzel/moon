@@ -20,6 +20,7 @@ class moonMessenger: public G4UImessenger
     G4String GetCurrentValue(G4UIcommand * command);
 
     G4double GetThick() const;
+    G4String GetParticle() const;
 
   private:
   static moonMessenger * instance;
@@ -29,8 +30,10 @@ class moonMessenger: public G4UImessenger
 
   G4UIdirectory * geoDirectory;
   G4UIcmdWithADoubleAndUnit * thickCmd;
+  G4UIcmdWithAString* particleCmd;
 
   G4double thick;
+  G4String particle;
 
 };
 
@@ -38,4 +41,10 @@ inline G4double moonMessenger::GetThick() const
 {
   return thick;
 }
+
+inline G4String moonMessenger::GetParticle() const
+{
+  return particle;
+}
+
 #endif

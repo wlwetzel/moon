@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/wyatt/Documents/moon/moon_src
+CMAKE_SOURCE_DIR = /home/wyatt/Documents/g4_projects/moon/moon_src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/wyatt/Documents/moon/build
+CMAKE_BINARY_DIR = /home/wyatt/Documents/g4_projects/moon/build
 
 # Utility rule file for moon_src.
 
@@ -71,6 +71,6 @@ CMakeFiles/moon_src.dir/clean:
 .PHONY : CMakeFiles/moon_src.dir/clean
 
 CMakeFiles/moon_src.dir/depend:
-	cd /home/wyatt/Documents/moon/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wyatt/Documents/moon/moon_src /home/wyatt/Documents/moon/moon_src /home/wyatt/Documents/moon/build /home/wyatt/Documents/moon/build /home/wyatt/Documents/moon/build/CMakeFiles/moon_src.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/wyatt/Documents/g4_projects/moon/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wyatt/Documents/g4_projects/moon/moon_src /home/wyatt/Documents/g4_projects/moon/moon_src /home/wyatt/Documents/g4_projects/moon/build /home/wyatt/Documents/g4_projects/moon/build /home/wyatt/Documents/g4_projects/moon/build/CMakeFiles/moon_src.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/moon_src.dir/depend
 

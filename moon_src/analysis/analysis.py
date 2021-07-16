@@ -12,7 +12,6 @@ dat_no_ten = dat[dat['dep']>.050]
 # print(dat_no_ten.mean())
 # print("percent of hits")
 # print( len(dat[dat['dep']!=0]['dep']) / len(dat['dep']) )
-#
 # nbins=70
 # fig = px.histogram(dat_no_ten['dep'],range_x = [0,.7] , nbins=nbins)
 # fig.update_layout(xaxis_title_text='Deposited Energy (MeV)',

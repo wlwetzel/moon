@@ -61,7 +61,6 @@ void moonEventAction::EndOfEventAction(const G4Event*)
   fRunAction->AddEdep(fEdep);
   auto analysisManager = G4AnalysisManager::Instance();
   analysisManager-> FillNtupleDColumn(1,fEdep);
-  std::cout << fEdep << '\n';
   analysisManager->AddNtupleRow();
 }
 

@@ -43,8 +43,17 @@ class moonDetectorConstruction : public G4VUserDetectorConstruction
 {
   public:
     moonDetectorConstruction();
-    virtual ~moonDetectorConstruction();
+    void detectorConstruction(const G4double det_hx,
+                              const G4double det_hy,
+                              const G4double det_hz);
+    void shieldConstruction(const G4double shield_hx,
+                            const G4double shield_hy,
+                            const G4double shield_hz);
+    void plateConstruction(const G4double plate_hx,
+                          const G4double plate_hy,
+                          const G4double plate_hz);
 
+    virtual ~moonDetectorConstruction();
     virtual G4VPhysicalVolume* Construct();
 
     G4LogicalVolume* GetScoringVolume() const { return fScoringVolume; }
@@ -54,6 +63,8 @@ class moonDetectorConstruction : public G4VUserDetectorConstruction
 
   private:
     moonMessenger* fMessenger;
+    G4LogicalVolume* logicWorld;
+
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

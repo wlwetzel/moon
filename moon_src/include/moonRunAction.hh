@@ -33,7 +33,7 @@
 #include "G4UserRunAction.hh"
 #include "G4Accumulable.hh"
 #include "globals.hh"
-
+#include "moonMessenger.hh"
 class G4Run;
 
 /// Run action class
@@ -56,6 +56,8 @@ class moonRunAction : public G4UserRunAction
 
   private:
     G4Accumulable<G4double> fEdep;
+    moonMessenger* fMessenger;
+
 };
 
 #endif

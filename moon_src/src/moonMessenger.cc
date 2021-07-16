@@ -26,23 +26,33 @@ moonMessenger::moonMessenger(){
   thickCmd->SetGuidance("Shielding thickness.");
   thickCmd->SetGuidance("  (10mm is default)");
   thickCmd->SetParameterName("Thick",true);
-  thickCmd->SetDefaultValue(10*mm);
+  thickCmd->SetDefaultValue(.5*10*mm);
+
+
+  particleCmd = new G4UIcmdWithAString("/config/particle",this);
+  particleCmd->SetGuidance("Particle Type.");
+  particleCmd->SetGuidance("  (Electron is default)");
+  particleCmd->SetParameterName("Electron",true);
+  particleCmd->SetDefaultValue("Electron");
 
   // initital vals
 
-  thick = 10 * mm;
-
+  thick = .5 * 10 * mm;
+  particle = "Electron";
 }
 
 moonMessenger::~moonMessenger()
 {
   delete thickCmd;
+  delete particleCmd;
 }
 
 void moonMessenger::SetNewValue(G4UIcommand * command, G4String newValues)
 {
     if (command == thickCmd)
         thick = G4UIcmdWithADoubleAndUnit::GetNewDoubleValue(newValues);
+    if (command == particleCmd)
+        particle = newValues;
 }
 
 G4String moonMessenger::GetCurrentValue(G4UIcommand * command)
@@ -50,5 +60,7 @@ G4String moonMessenger::GetCurrentValue(G4UIcommand * command)
   G4String cv;
     if( command==thickCmd )
         cv = thick;
+    if (command==particleCmd)
+        cv = particle;
     return cv;
 }
