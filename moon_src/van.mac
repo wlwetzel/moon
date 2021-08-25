@@ -1,0 +1,68 @@
+/config/Thick 5 mm
+/config/particle elec
+
+/run/initialize
+/control/verbose 0
+/tracking/verbose 0
+/event/verbose 0
+/gps/verbose 0
+
+/gps/particle e-
+/gps/pos/centre 0 0 -7
+/gps/direction 0 0 1
+
+/gps/ene/type Arb
+/gps/hist/type arb
+/gps/hist/point 1.00 0
+/gps/hist/point 1.06 1216351.64
+/gps/hist/point 1.12 1096857.12
+/gps/hist/point 1.18 989101.76
+/gps/hist/point 1.25 891932.30
+/gps/hist/point 1.33 804308.77
+/gps/hist/point 1.40 725293.39
+/gps/hist/point 1.48 654040.49
+/gps/hist/point 1.57 589787.49
+/gps/hist/point 1.66 531846.70
+/gps/hist/point 1.76 479598.02
+/gps/hist/point 1.86 432482.26
+/gps/hist/point 1.97 389995.16
+/gps/hist/point 2.08 351681.99
+/gps/hist/point 2.20 317132.72
+/gps/hist/point 2.33 285977.56
+/gps/hist/point 2.47 257883.10
+/gps/hist/point 2.61 232548.64
+/gps/hist/point 2.76 209703.03
+/gps/hist/point 2.92 189101.78
+/gps/hist/point 3.09 170524.40
+/gps/hist/point 3.27 153772.07
+/gps/hist/point 3.46 138665.48
+/gps/hist/point 3.66 125042.97
+/gps/hist/point 3.87 112758.74
+/gps/hist/point 4.09 101681.31
+/gps/hist/point 4.33 91692.12
+/gps/hist/point 4.58 82684.28
+/gps/hist/point 4.85 74561.37
+/gps/hist/point 5.13 67236.45
+/gps/hist/point 5.43 60631.14
+/gps/hist/point 5.74 54674.73
+/gps/hist/point 6.08 49303.48
+/gps/hist/point 6.43 44459.90
+/gps/hist/point 6.80 40092.15
+/gps/hist/point 7.20 36153.49
+/gps/hist/point 7.61 32601.77
+/gps/hist/point 8.06 29398.97
+/gps/hist/point 8.52 26510.81
+/gps/hist/point 9.02 23906.39
+/gps/hist/point 9.54 21557.82
+/gps/hist/point 10.09 19439.98
+/gps/hist/point 10.68 17530.19
+/gps/hist/point 11.30 15808.02
+/gps/hist/point 11.96 14255.04
+/gps/hist/point 12.65 12854.63
+/gps/hist/point 13.38 11591.79
+/gps/hist/point 14.16 10453.01
+/gps/hist/point 14.98 9426.10
+/gps/hist/point 15.85 8500.08
+/gps/hist/inter Spline
+
+/run/beamOn 100000

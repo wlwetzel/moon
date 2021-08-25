@@ -75,7 +75,7 @@ G4VPhysicalVolume* moonDetectorConstruction::Construct()
     new G4Material("vac",atomicNumber,massOfMole,density,kStateGas,temperature,
                   pressure);
 
-  G4double world_dim = 5*cm; //cube
+  G4double world_dim = 8*cm; //cube
   //world
   G4Box* solidWorld =
     new G4Box("world",world_dim,world_dim,world_dim);
