@@ -116,7 +116,7 @@ void moonDetectorConstruction::plateConstruction(const G4double plate_hx,
                                                   const G4double plate_hz)
 {
   G4NistManager* nist = G4NistManager::Instance();
-  G4Material* plate_mat = nist->FindOrBuildMaterial("G4_Al");
+  G4Material* plate_mat = nist->FindOrBuildMaterial("G4_Ta");
   G4double shield_hz = .5*.01*2.54*cm; // .01 inches
   G4double det_hz = .5*250*micrometer;
   G4ThreeVector plate_pos = G4ThreeVector(0,0,1*cm - (shield_hz+det_hz+plate_hz));

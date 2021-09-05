@@ -1,0 +1,95 @@
+/config/Thick 2 mm
+/config/particle prot
+
+/run/initialize
+/control/verbose 0
+/tracking/verbose 0
+/event/verbose 0
+/gps/verbose 0
+
+/gps/source/add 1.
+/gps/particle proton
+/gps/energy 10 MeV
+/gps/pos/centre 0 0 -7
+/gps/direction 0 0 1
+
+
+/gps/source/add 1.
+/gps/particle proton
+/gps/energy 20 MeV
+/gps/pos/centre 0 0 -7
+/gps/direction 0 0 1
+
+/gps/source/add 1.
+/gps/particle proton
+/gps/energy 25 MeV
+/gps/pos/centre 0 0 -7
+/gps/direction 0 0 1
+
+/gps/source/add 1.
+/gps/particle proton
+/gps/energy 35 MeV
+/gps/pos/centre 0 0 -7
+/gps/direction 0 0 1
+
+
+/gps/source/add 1.
+/gps/particle proton
+/gps/energy 45 MeV
+/gps/pos/centre 0 0 -7
+/gps/direction 0 0 1
+
+
+/gps/source/add 1.
+/gps/particle proton
+/gps/energy 50 MeV
+/gps/pos/centre 0 0 -7
+/gps/direction 0 0 1
+
+/gps/source/add 1.
+/gps/particle proton
+/gps/energy 60 MeV
+/gps/pos/centre 0 0 -7
+/gps/direction 0 0 1
+
+/gps/source/add 1.
+/gps/particle proton
+/gps/energy 70 MeV
+/gps/pos/centre 0 0 -7
+/gps/direction 0 0 1
+
+/gps/source/add 1.
+/gps/particle proton
+/gps/energy 80 MeV
+/gps/pos/centre 0 0 -7
+/gps/direction 0 0 1
+
+/gps/source/add 1.
+/gps/particle proton
+/gps/energy 85 MeV
+/gps/pos/centre 0 0 -7
+/gps/direction 0 0 1
+
+/gps/source/add 1.
+/gps/particle proton
+/gps/energy 90 MeV
+/gps/pos/centre 0 0 -7
+/gps/direction 0 0 1
+
+/gps/source/add 1.
+/gps/particle proton
+/gps/energy 95 MeV
+/gps/pos/centre 0 0 -7
+/gps/direction 0 0 1
+
+/gps/source/add 1.
+/gps/particle proton
+/gps/energy 100 MeV
+/gps/pos/centre 0 0 -7
+/gps/direction 0 0 1
+
+/gps/source/multiplevertex false
+
+/gps/source/flatsampling false
+
+/run/beamOn 10000000

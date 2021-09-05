@@ -3,7 +3,8 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objs as go
 master_path = "/home/wyatt/Documents/g4_projects/moon/build/moon_dat_"
-parts = ["1cm_elec","2cm_elec","3cm_elec","1cm_prot","2cm_prot","3cm_prot"]
+# parts = ["1cm_elec","2cm_elec","3cm_elec","1cm_prot","2cm_prot","3cm_prot"]
+parts = ["4mm_prot","8mm_prot"]
 paths = [master_path+ item + "_nt_MOON.csv" for item in parts]
 
 id = 0

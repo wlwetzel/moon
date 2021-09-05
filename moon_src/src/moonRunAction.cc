@@ -83,11 +83,11 @@ void moonRunAction::BeginOfRunAction(const G4Run*)
 
   G4double plate_thickness = fMessenger->GetThick();
   G4String particle = fMessenger->GetParticle();
-  std::string thick_str = std::to_string( (.2) * plate_thickness/mm);
+  std::string thick_str = std::to_string(2 * plate_thickness/mm);
   auto butt = thick_str[0];
   G4String fileName = "moon_dat_" ;
   fileName+=butt;
-  fileName+="cm_";
+  fileName+="mm_";
   fileName+=particle;
   analysisManager->OpenFile(fileName);
 

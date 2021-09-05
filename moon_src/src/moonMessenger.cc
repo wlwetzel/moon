@@ -26,7 +26,7 @@ moonMessenger::moonMessenger(){
   thickCmd->SetGuidance("Shielding thickness.");
   thickCmd->SetGuidance("  (10mm is default)");
   thickCmd->SetParameterName("Thick",true);
-  thickCmd->SetDefaultValue(.5*10*mm);
+  thickCmd->SetDefaultValue(.5*4*mm);
 
 
   particleCmd = new G4UIcmdWithAString("/config/particle",this);
@@ -37,7 +37,7 @@ moonMessenger::moonMessenger(){
 
   // initital vals
 
-  thick = .5 * 10 * mm;
+  thick = .5 * 4 * mm;
   particle = "Electron";
 }
 
